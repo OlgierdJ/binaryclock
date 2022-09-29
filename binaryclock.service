@@ -1,0 +1,11 @@
+[Unit]
+Description=My binaryclock service
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=on-abort
+ExecStart=/usr/bin/python3 /home/pi/code/binaryclock.py
+
+[Install]
+WantedBy=multi-user.target
