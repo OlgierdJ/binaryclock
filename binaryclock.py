@@ -78,14 +78,17 @@ def display_binary(value, row, color):
             else:
                 hat.set_pixel(x, row, off)
     else:
+        if len(str(value))==1:
+            value="0"+str(value)
         arr = [int(a) for a in str(value)]
-        if len(arr)>1:
-            binary_str = '{0:4b}'.format(arr[1])
-            for x in range(0, 4):
-                if binary_str[x] == '1':
-                    hat.set_pixel(row+1, x, color)
-                else:
-                    hat.set_pixel(row+1, x, off)
+        
+        print(arr)
+        binary_str = '{0:4b}'.format(arr[1])
+        for x in range(0, 4):
+            if binary_str[x] == '1':
+                hat.set_pixel(row+1, x, color)
+            else:
+                hat.set_pixel(row+1, x, off)
         binary_str = '{0:4b}'.format(arr[0])
         for x in range(0, 4):
             if binary_str[x] == '1':
